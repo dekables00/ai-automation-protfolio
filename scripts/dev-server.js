@@ -19,7 +19,17 @@ function getFilePath(requestUrl) {
   const url = new URL(requestUrl, `http://${host}:${port}`);
   const requestedPath = decodeURIComponent(url.pathname);
   const relativePath = requestedPath === "/" ? "index.html" : requestedPath.slice(1);
-  return path.resolve(rootDir, relativePath);
+  const filePath = path.resolve(rootDir, relativePath);
+
+  if (fs.existsSync(filePath) && fs.statSync(filePath).isDirectory()) {
+    return path.join(filePath, "index.html");
+  }
+
+  if (!path.extname(filePath) && fs.existsSync(`${filePath}.html`)) {
+    return `${filePath}.html`;
+  }
+
+  return filePath;
 }
 
 const server = http.createServer((request, response) => {

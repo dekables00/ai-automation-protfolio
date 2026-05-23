@@ -4,6 +4,7 @@ const themeToggle = document.querySelector("[data-theme-toggle]");
 const themeLabel = document.querySelector("[data-theme-label]");
 const siteHeader = document.querySelector(".site-header");
 const initialHash = window.location.hash;
+const initialSection = new URLSearchParams(window.location.search).get("section");
 
 const THEME_STORAGE_KEY = "agent-dex-theme-v2";
 
@@ -109,8 +110,12 @@ function animateScrollTo(targetTop) {
 }
 
 function cleanHashFromUrl() {
-  if (window.location.hash) {
-    history.replaceState(null, "", window.location.pathname + window.location.search);
+  const url = new URL(window.location.href);
+  url.hash = "";
+  url.searchParams.delete("section");
+
+  if (window.location.href !== url.href) {
+    history.replaceState(null, "", url.pathname + url.search);
   }
 }
 
@@ -164,7 +169,8 @@ document.addEventListener("click", (event) => {
 cleanHashFromUrl();
 window.addEventListener("load", () => {
   window.setTimeout(() => {
-    const targetTop = initialHash ? getSectionTop(initialHash) : null;
+    const initialTargetId = initialHash || (initialSection ? `#${initialSection}` : "");
+    const targetTop = initialTargetId ? getSectionTop(initialTargetId) : null;
 
     if (targetTop !== null) {
       window.scrollTo(0, Math.max(0, targetTop));
