@@ -3,6 +3,7 @@ const navLinks = document.querySelector("[data-nav-links]");
 const themeToggle = document.querySelector("[data-theme-toggle]");
 const themeLabel = document.querySelector("[data-theme-label]");
 const siteHeader = document.querySelector(".site-header");
+const initialHash = window.location.hash;
 
 const THEME_STORAGE_KEY = "agent-dex-theme-v2";
 
@@ -107,6 +108,24 @@ function animateScrollTo(targetTop) {
   step(startTime);
 }
 
+function cleanHashFromUrl() {
+  if (window.location.hash) {
+    history.replaceState(null, "", window.location.pathname + window.location.search);
+  }
+}
+
+function getSectionTop(targetId) {
+  const target = document.querySelector(targetId);
+
+  if (!(target instanceof HTMLElement)) {
+    return null;
+  }
+
+  const header = document.querySelector(".site-header");
+  const headerOffset = targetId === "#top" ? 0 : header instanceof HTMLElement ? header.offsetHeight + 28 : 108;
+  return targetId === "#top" ? 0 : target.getBoundingClientRect().top + window.pageYOffset - headerOffset;
+}
+
 function scrollToSection(anchor) {
   const targetId = anchor.getAttribute("href");
 
@@ -123,13 +142,14 @@ function scrollToSection(anchor) {
   closeMenu();
   siteHeader?.classList.remove("is-hidden");
 
-  const header = document.querySelector(".site-header");
-  const headerOffset = targetId === "#top" ? 0 : header instanceof HTMLElement ? header.offsetHeight + 28 : 108;
-  const targetTop = targetId === "#top" ? 0 : target.getBoundingClientRect().top + window.pageYOffset - headerOffset;
+  const targetTop = getSectionTop(targetId);
+
+  if (targetTop === null) {
+    return false;
+  }
 
   animateScrollTo(Math.max(0, targetTop));
-
-  history.pushState(null, "", targetId);
+  cleanHashFromUrl();
   return true;
 }
 
@@ -140,6 +160,19 @@ document.addEventListener("click", (event) => {
     event.preventDefault();
   }
 }, true);
+
+cleanHashFromUrl();
+window.addEventListener("load", () => {
+  window.setTimeout(() => {
+    const targetTop = initialHash ? getSectionTop(initialHash) : null;
+
+    if (targetTop !== null) {
+      window.scrollTo(0, Math.max(0, targetTop));
+    }
+
+    cleanHashFromUrl();
+  }, 0);
+});
 
 if (navToggle && navLinks) {
   // Keep the mobile menu state reflected in aria-expanded for accessibility.
