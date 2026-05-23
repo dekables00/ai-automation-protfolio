@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title">
+  <title id="title">Gmail</title>
+  <path fill="#4285F4" d="M64 384h80V196L64 136z"/>
+  <path fill="#34A853" d="M368 384h80V136l-80 60z"/>
+  <path fill="#FBBC04" d="M368 136v60l80-60v-40c0-35-40-55-68-34z"/>
+  <path fill="#EA4335" d="M64 136l80 60 112 84 112-84 80-60-68-74-124 93L132 62c-28-21-68-1-68 34z"/>
+  <path fill="#C5221F" d="M64 136v-40c0-35 40-55 68-34l124 93-112 41z"/>
+</svg>

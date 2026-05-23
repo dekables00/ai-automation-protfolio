@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 48" role="img" aria-labelledby="title">
+  <title id="title">Zoho CRM</title>
+  <rect x="7" y="10" width="24" height="24" rx="5" fill="#E42527"/>
+  <rect x="28" y="10" width="24" height="24" rx="5" fill="#0F6DB6"/>
+  <rect x="49" y="10" width="24" height="24" rx="5" fill="#00A650"/>
+  <rect x="70" y="10" width="24" height="24" rx="5" fill="#F9B000"/>
+  <text x="19" y="27.5" text-anchor="middle" fill="#fff" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="900">Z</text>
+  <text x="40" y="27.5" text-anchor="middle" fill="#fff" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="900">O</text>
+  <text x="61" y="27.5" text-anchor="middle" fill="#fff" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="900">H</text>
+  <text x="82" y="27.5" text-anchor="middle" fill="#fff" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="900">O</text>
+</svg>

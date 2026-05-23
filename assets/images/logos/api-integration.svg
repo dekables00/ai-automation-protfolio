@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96" role="img" aria-labelledby="title">
+  <title id="title">API Integration</title>
+  <path fill="none" stroke="#7B147E" stroke-linecap="round" stroke-linejoin="round" stroke-width="8" d="M48 7v10m0 62v10M19 19l7 7m44 44 7 7M7 48h10m62 0h10M19 77l7-7m44-44 7-7"/>
+  <circle cx="48" cy="48" r="29" fill="none" stroke="#7B147E" stroke-width="7"/>
+  <path fill="none" stroke="#C02BB9" stroke-linecap="round" stroke-linejoin="round" stroke-width="7" d="M34 41h24l-7-7m11 21H38l7 7"/>
+</svg>

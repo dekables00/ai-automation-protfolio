@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 70" role="img" aria-labelledby="title">
+  <title id="title">n8n</title>
+  <g fill="none" stroke="#EA4B71" stroke-linecap="round" stroke-width="8">
+    <path d="M18 35h30m0 0h28m0 0c16 0 13-24 30-24h7m-37 24c16 0 13 24 30 24h7"/>
+  </g>
+  <g fill="none" stroke="#EA4B71" stroke-width="7">
+    <circle cx="18" cy="35" r="11"/>
+    <circle cx="48" cy="35" r="11"/>
+    <circle cx="76" cy="35" r="11"/>
+    <circle cx="118" cy="11" r="11"/>
+    <circle cx="118" cy="59" r="11"/>
+  </g>
+</svg>
